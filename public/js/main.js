@@ -55,7 +55,7 @@ const joinBtn = document.querySelector('#joinBtn');
 joinBtn.addEventListener('click', () => {
     const room = roomInput.value;
     if (!room) {
-        notify('Room ID not provided');
+        notify('Xona ID si berilmagan');
         return;
     }
 
@@ -67,8 +67,8 @@ const setTitle = (status, e) => {
 
     console.log(`Room ${room} was ${status}`);
 
-    notify(`Room ${room} was ${status}`);
-    document.querySelector('h1').textContent = `Room: ${room}`;
+    notify(`${room} Xona ${status}`);
+    document.querySelector('h1').textContent = `Xona: ${room}`;
     webrtc.gotStream();
 };
 webrtc.addEventListener('createdRoom', setTitle.bind(this, 'created'));
@@ -84,7 +84,7 @@ leaveBtn.addEventListener('click', () => {
 webrtc.addEventListener('leftRoom', (e) => {
     const room = e.detail.roomId;
     document.querySelector('h1').textContent = '';
-    notify(`Left the room ${room}`);
+    notify(`${room} xonasini tark etdi`);
 });
 
 /**
