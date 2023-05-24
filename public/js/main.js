@@ -71,8 +71,8 @@ const setTitle = (status, e) => {
     document.querySelector('h1').textContent = `Xona: ${room}`;
     webrtc.gotStream();
 };
-webrtc.addEventListener('createdRoom', setTitle.bind(this, 'created'));
-webrtc.addEventListener('joinedRoom', setTitle.bind(this, 'joined'));
+webrtc.addEventListener('createdRoom', setTitle.bind(this, 'yaratildi'));
+webrtc.addEventListener('joinedRoom', setTitle.bind(this, 'qo\'shildi'));
 
 /**
  * Leave the room
@@ -95,7 +95,7 @@ webrtc
     .then((stream) => (localVideo.srcObject = stream));
 
 webrtc.addEventListener('kicked', () => {
-    document.querySelector('h1').textContent = 'You were kicked out';
+    document.querySelector('h1').textContent = 'Siz chiqarib yuborildingiz';
     videoGrid.innerHTML = '';
 });
 

@@ -22,9 +22,9 @@ class Webrtc extends EventTarget {
         this._localStream = null;
 
         // Manage logging
-        this.log = logging.log ? console.log : () => {};
-        this.warn = logging.warn ? console.warn : () => {};
-        this.error = logging.error ? console.error : () => {};
+        this.log = logging.log ? console.log : () => { };
+        this.warn = logging.warn ? console.warn : () => { };
+        this.error = logging.error ? console.error : () => { };
 
         // Initialize socket.io listeners
         this._onSocketListeners();
@@ -66,7 +66,7 @@ class Webrtc extends EventTarget {
             this.warn('Should join room before sending stream');
 
             this._emit('notification', {
-                notification: `Should join room before sending a stream.`,
+                notification: `Video oqimni jo'natishdan oldin xonaga qo'shilish kerak`,
             });
         }
     }
@@ -76,7 +76,7 @@ class Webrtc extends EventTarget {
             this.warn('Leave current room before joining a new one');
 
             this._emit('notification', {
-                notification: `Leave current room before joining a new one`,
+                notification: `Yangi xonaga qo'shilish uchun eskisdan chiqing`,
             });
             return;
         }
@@ -84,7 +84,7 @@ class Webrtc extends EventTarget {
             this.warn('Room ID not provided');
 
             this._emit('notification', {
-                notification: `Room ID not provided`,
+                notification: `Xona ID si mavjud emas`,
             });
             return;
         }
@@ -96,7 +96,7 @@ class Webrtc extends EventTarget {
             this.warn('You are currently not in a room');
 
             this._emit('notification', {
-                notification: `You are currently not in a room`,
+                notification: `Siz hozir xonada emassiz`,
             });
             return;
         }
@@ -429,7 +429,7 @@ class Webrtc extends EventTarget {
     kickUser(socketId) {
         if (!this.isAdmin) {
             this._emit('notification', {
-                notification: 'You are not an admin',
+                notification: 'Siz admin emassiz',
             });
             return;
         }
