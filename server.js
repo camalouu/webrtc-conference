@@ -126,5 +126,7 @@ io.sockets.on('connection', function (socket) {
   });
 
 
-  socket.on('chat message', msg => io.emit('chat message', msg))
+  socket.on('chat message', (message, toId = null, room = null) => {
+    io.sockets.to(room).emit('chat message', message, socket.id);
+  })
 });

@@ -130,7 +130,7 @@ webrtc.addEventListener('newUser', (e) => {
     if (webrtc.isAdmin) {
         const kickBtn = document.createElement('button');
         kickBtn.setAttribute('class', 'kick_btn');
-        kickBtn.textContent = 'Kick';
+        kickBtn.textContent = 'Chiqarib yuborish';
 
         kickBtn.addEventListener('click', () => {
             webrtc.kickUser(socketId);
@@ -180,7 +180,7 @@ var input = document.getElementById('input');
 form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (input.value) {
-        socket.emit('chat message', input.value);
+        socket.emit('chat message', input.value, null, webrtc.room);
         input.value = '';
     }
 });
