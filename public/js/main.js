@@ -58,6 +58,7 @@ joinBtn.addEventListener('click', () => {
         notify('Xona ID si berilmagan');
         return;
     }
+    document.querySelector('#form').style.display = "flex"
 
     webrtc.joinRoom(room);
 });
@@ -79,6 +80,7 @@ webrtc.addEventListener('joinedRoom', setTitle.bind(this, 'qo\'shildi'));
  */
 const leaveBtn = document.querySelector('#leaveBtn');
 leaveBtn.addEventListener('click', () => {
+    location.reload();
     webrtc.leaveRoom();
 });
 webrtc.addEventListener('leftRoom', (e) => {
